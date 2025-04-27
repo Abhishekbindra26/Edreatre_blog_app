@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} - Edreate Blog{% endblock %}
+
+{% block content %}
+    <article class="post-detail">
+        <div class="post-header">
+            <h1 class="post-title">{{ post.title }}</h1>
+            <div class="post-meta">
+                <span class="post-date">Published on {{ post.created_date|date:"F d, Y" }}</span>
+                {% if post.updated_date != post.created_date %}
+                    <span class="post-updated">Updated on {{ post.updated_date|date:"F d, Y" }}</span>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% if post.image %}
+            <div class="post-featured-image">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            </div>
+        {% endif %}
+        
+        <div class="post-content">
+            {{ post.content|linebreaks }}
+        </div>
+        
+        <div class="post-footer">
+            <a href="{% url 'home' %}" class="back-btn">← Back to Home</a>
+        </div>
+    </article>
+{% endblock %}

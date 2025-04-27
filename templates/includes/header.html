@@ -1,0 +1,16 @@
+{% load static %}
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/edreate_logo.png' %}" alt="Edreate" class="logo-img">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                <li><a href="{% url 'admin:index' %}" class="nav-link">Admin</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
